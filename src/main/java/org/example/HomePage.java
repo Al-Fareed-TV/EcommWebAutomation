@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class HomePage {
     WebDriver webDriver;
-    By searchIcon = By.cssSelector("summary[aria-label='Search']");
+    By searchIcon = By.cssSelector("#shopify-section-header > sticky-header > header > div > details-modal > details > summary > span > svg.modal__toggle-open.icon.icon-search");
     By searchBar = By.id("Search-In-Modal");
     By searchResults = By.cssSelector("li[id^='predictive-search-option'] a");
 
