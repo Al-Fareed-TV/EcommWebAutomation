@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SearchTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-08-09T09:11:05" hostname="Al-Fareeds-MacBook-Pro.local" time="21.232">
+<testsuite name="SearchTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-08-09T09:15:22" hostname="Al-Fareeds-MacBook-Pro.local" time="13.306">
   <properties/>
-  <testcase name="verifyBrandSearchListsOnlyBrandItems" classname="SearchTests" time="7.48"/>
-  <testcase name="verifyIfSearchTermShowsRelevantResults" classname="SearchTests" time="7.6"/>
-  <testcase name="verifySearchResultCountMatchesDisplayedItems" classname="SearchTests" time="2.621"/>
-  <testcase name="verifySearchUnavailableProduct" classname="SearchTests" time="3.52"/>
+  <testcase name="verifyBrandSearchListsOnlyBrandItems" classname="SearchTests" time="5.217"/>
+  <testcase name="verifyIfSearchTermShowsRelevantResults" classname="SearchTests" time="2.667"/>
+  <testcase name="verifySearchResultCountMatchesDisplayedItems" classname="SearchTests" time="2.576"/>
+  <testcase name="verifySearchUnavailableProduct" classname="SearchTests" time="2.836"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Aug 09, 2023 2:41:05 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+  <system-err><![CDATA[Aug 09, 2023 2:45:22 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
 INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
-Aug 09, 2023 2:41:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Aug 09, 2023 2:45:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 115, so returning the closest version found: 114
-Aug 09, 2023 2:41:12 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+Aug 09, 2023 2:45:27 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
 INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
-Aug 09, 2023 2:41:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Aug 09, 2023 2:45:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 115, so returning the closest version found: 114
-Aug 09, 2023 2:41:20 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+Aug 09, 2023 2:45:30 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
 INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
-Aug 09, 2023 2:41:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Aug 09, 2023 2:45:31 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 115, so returning the closest version found: 114
-Aug 09, 2023 2:41:23 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+Aug 09, 2023 2:45:32 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
 INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
-Aug 09, 2023 2:41:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Aug 09, 2023 2:45:34 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 115, so returning the closest version found: 114
 ]]></system-err>
 </testsuite>
