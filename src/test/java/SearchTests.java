@@ -1,11 +1,17 @@
+import driver.DriverCreator;
 import org.example.HomePage;
 import org.example.Item;
 import org.example.LauncherPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
@@ -14,24 +20,27 @@ public class SearchTests {
     @Test
     public void verifyIfSearchTermShowsRelevantResults() throws InterruptedException {
 
-        WebDriver webDriver = new ChromeDriver();
+        WebDriver webDriver = null;
         try { //Arrange
-            String searchItem = "Product";
-            String searchKey = "Product";
+            String searchItem = "Jeans";
+            String searchKey = "Jean";
+            String browser = "chrome";
+            webDriver = new DriverCreator().create(browser);
             LauncherPage launcherPage = new LauncherPage(webDriver);
             launcherPage.navigateTo("https://web-playground.ultralesson.com/");
-
             //Act
             HomePage homepage = new HomePage(webDriver);
             homepage.search(searchItem);
-            List<Item> searchItems = homepage.getSearchItems();
 
+
+            List<Item> searchItems = homepage.getSearchItems();
             //Assert
-            Assert.assertEquals(0, searchItems.size());
+            Assert.assertEquals(4, searchItems.size());
             Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains(searchKey)));
         } catch (Exception e) {
-            System.out.println("Al-Fareed : Error .." + e.getMessage());
+            System.out.println(e.getMessage());
         } finally {
+            sleep(3000);
             webDriver.quit();
         }
     }
@@ -75,9 +84,9 @@ public class SearchTests {
 
             // Assert
             Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains(brandName)));
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }finally {
+        } finally {
             webDriver.quit();
         }
     }

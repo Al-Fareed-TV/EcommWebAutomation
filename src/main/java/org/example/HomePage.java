@@ -1,16 +1,21 @@
 package org.example;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.ArrayList;
 
 
 public class HomePage {
     WebDriver webDriver;
-    By searchIcon = By.cssSelector("#shopify-section-header > sticky-header > header > div > details-modal > details > summary > span > svg.modal__toggle-open.icon.icon-search");
+    By searchIcon = By.cssSelector("summary[aria-label='Search']");
     By searchBar = By.id("Search-In-Modal");
     By searchResults = By.cssSelector("li[id^='predictive-search-option'] a");
 
@@ -28,7 +33,11 @@ public class HomePage {
     }
 
     public List<Item> getSearchItems() {
-        List<WebElement> elements = webDriver.findElements(searchResults);
+        Wait <WebDriver> wait = new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class);
+        List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(searchResults));
         List<Item> items = new ArrayList<>();
         for(WebElement element : elements) {
             String name = element.findElement(productName).getText();
