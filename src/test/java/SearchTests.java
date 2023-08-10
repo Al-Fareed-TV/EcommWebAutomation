@@ -2,17 +2,16 @@ import driver.DriverCreator;
 import org.example.HomePage;
 import org.example.Item;
 import org.example.LauncherPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.Thread.sleep;
 
@@ -20,14 +19,24 @@ public class SearchTests {
     @Test
     public void verifyIfSearchTermShowsRelevantResults() throws InterruptedException {
 
+//        Map<String, String> mobileEmulation = new HashMap<>();
+//        mobileEmulation.put("deviceName", "Nexus 5");
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+//        WebDriver webDriver = new ChromeDriver(chromeOptions);
         WebDriver webDriver = null;
-        try { //Arrange
+
+        try {
+            //Arrange
+
             String searchItem = "Jeans";
             String searchKey = "Jean";
             String browser = "chrome";
             webDriver = new DriverCreator().create(browser);
+
             LauncherPage launcherPage = new LauncherPage(webDriver);
             launcherPage.navigateTo("https://web-playground.ultralesson.com/");
+
             //Act
             HomePage homepage = new HomePage(webDriver);
             homepage.search(searchItem);
@@ -40,6 +49,8 @@ public class SearchTests {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
+            JavascriptExecutor js = (JavascriptExecutor) webDriver;
+            js.executeScript("window.alert(`Terminating mission in 3s..`);");
             sleep(3000);
             webDriver.quit();
         }

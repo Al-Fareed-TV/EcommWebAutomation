@@ -13,8 +13,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class HomePage {
-    WebDriver webDriver;
+public class HomePage extends BasePage {
     By searchIcon = By.cssSelector("summary[aria-label='Search']");
     By searchBar = By.id("Search-In-Modal");
     By searchResults = By.cssSelector("li[id^='predictive-search-option'] a");
@@ -22,8 +21,8 @@ public class HomePage {
     // Scoped Element
     By productName = By.cssSelector(".predictive-search__item-heading");
 
-    public HomePage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+    public HomePage (WebDriver webDriver) {
+        super(webDriver);
     }
 
     public HomePage search(String searchItem) {
@@ -33,11 +32,7 @@ public class HomePage {
     }
 
     public List<Item> getSearchItems() {
-        Wait <WebDriver> wait = new FluentWait<>(webDriver)
-                .withTimeout(Duration.ofSeconds(20))
-                .pollingEvery(Duration.ofSeconds(2))
-                .ignoring(NoSuchElementException.class);
-        List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(searchResults));
+        List <WebElement> elements = waits.waitUntilAllElementsAreVisible(searchResults);
         List<Item> items = new ArrayList<>();
         for(WebElement element : elements) {
             String name = element.findElement(productName).getText();
