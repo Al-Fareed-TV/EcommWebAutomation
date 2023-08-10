@@ -2,16 +2,13 @@ import driver.DriverCreator;
 import org.example.HomePage;
 import org.example.Item;
 import org.example.LauncherPage;
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static java.lang.Thread.sleep;
 
