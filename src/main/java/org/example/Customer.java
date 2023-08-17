@@ -14,7 +14,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private Address shippingAddress;
-//    private PaymentMode paymentMode;
+    private PaymentMode paymentMode;
 //    private Card cardDetails;
     private Address billingAddress;
 

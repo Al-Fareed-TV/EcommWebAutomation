@@ -16,13 +16,32 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.4.1'
     implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
-    implementation('org.projectlombok:lombok:1.18.20')
-    annotationProcessor('org.projectlombok:lombok:1.18.20')
-    testImplementation('org.projectlombok:lombok:1.18.20')
-    testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
+    implementation('org.projectlombok:lombok:1.18.26')
+    annotationProcessor('org.projectlombok:lombok:1.18.26')
+    testImplementation('org.projectlombok:lombok:1.18.26')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.26')
 
 }
 
 test {
     useTestNG()
+}
+tasks.withType(Test) {
+
+    systemProperties System.properties
+
+}
+
+task runWebTests(type: Test) {
+
+    outputs.upToDateWhen { false }
+
+    useTestNG {
+
+        useDefaultListeners true
+
+        outputDirectory = file("$buildDir/web-reports")
+
+    }
+
 }
