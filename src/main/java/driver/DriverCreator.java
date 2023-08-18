@@ -3,11 +3,15 @@ import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.github.bonigarcia.wdm.managers.EdgeDriverManager;
 import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.Objects;
 public class DriverCreator {
     public WebDriver create(String browser) {
         browser = setDefaultBrowser(browser);
         switch (browser.toLowerCase()) {
+            case "chrome" :
+                return new driver.ChromeDriverManager().create();
             case "firefox":
                 return new FirefoxDriverManager().create();
             case "edge":
@@ -23,4 +27,6 @@ public class DriverCreator {
         }
         return browser;
     }
+
+
 }

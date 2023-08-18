@@ -15,8 +15,16 @@ public class Customer {
     private String lastName;
     private Address shippingAddress;
     private PaymentMode paymentMode;
-//    private Card cardDetails;
+    private Card cardDetails;
     private Address billingAddress;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     public Customer init() {
         Faker faker = new Faker();

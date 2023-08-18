@@ -1,11 +1,14 @@
 package org.example;
-import lombok.Data;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
 @Data @Builder(toBuilder = true)
-@NoArgsConstructor @AllArgsConstructor public class Product {
+@NoArgsConstructor @AllArgsConstructor
+public class Product {
     private String name;
     private String searchKeyword;
     private Double price;
@@ -22,5 +25,8 @@ import lombok.NoArgsConstructor;
                 .color("Sand Stone")
                 .brand("Abidas")
                 .build();
+    }
+    public void assertThatNameSizeColorAreSame(Product that) {
+
     }
 }
