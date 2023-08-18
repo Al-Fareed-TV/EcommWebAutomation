@@ -2,7 +2,7 @@ name: Generate Allure report
 
 on:
   workflow_run:
-    workflows: ["$your-test-workflow-name$"]
+    workflows: .github/workflows/allure.yml
     types:
       - completed
 
