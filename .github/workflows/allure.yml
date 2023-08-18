@@ -1,0 +1,29 @@
+name: Generate Allure report
+
+on:
+  workflow_run:
+    workflows: ["$your-test-workflow-name$"]
+    types:
+      - completed
+
+jobs:
+  allure:
+    runs-on: ubuntu-latest
+    name: Generate Allure report
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Download Allure results
+        uses: actions/download-artifact@v2
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Publish Allure report
+        uses: simple-elf/allure-report-action@v1
+        with:
+          allure_results: allure-results
+          gh_pages: docs
