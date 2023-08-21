@@ -16,14 +16,13 @@ configurations {
 }
 dependencies {
     testImplementation 'org.testng:testng:7.8.0'
-    //testImplementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.10.0'
     implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
     implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
-    implementation 'io.github.bonigarcia:webdrivermanager:5.1.1'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.3.2'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    implementation('org.projectlombok:lombok:1.18.20')
+    implementation('org.projectlombok:lombok:1.18.26')
     annotationProcessor('org.projectlombok:lombok:1.18.20')
     testImplementation('org.projectlombok:lombok:1.18.20')
     testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
@@ -32,7 +31,7 @@ dependencies {
     implementation group: 'io.qameta.allure', name: 'allure-gradle', version: '2.8.0'
     implementation('io.qameta.allure:allure-java-commons:2.23.0')
     implementation('io.qameta.allure:allure-testng:2.23.0')
-    implementation 'org.aspectj:aspectjweaver:1.9.8.RC3'
+    implementation 'org.aspectj:aspectjweaver:1.9.19'
 }
 test {
     useTestNG()
@@ -42,11 +41,12 @@ test {
 //        print 'hello gradle'
 //    }
 //}
-task runWebTasks(type:Test){
-    outputs.upToDateWhen {false}    //run this task anew everytime
-    useTestNG{
+task runWebTests(type: Test) {
+    outputs.upToDateWhen { false }
+    useTestNG {
         useDefaultListeners true
         outputDirectory = file("$buildDir/web-reports")
+        listeners << 'com.yourpackage.ScreenshotListener' // replace with your listener's package
     }
 }
 tasks.withType(Test).configureEach {
@@ -74,9 +74,7 @@ task saveHistory(type:Copy){
     from new File(project.projectDir as File,'/allure-report/ui/history')
     into new File(project.projectDir as File,'/allure-report/results/history')
 }
-tasks.runWebTasks.dependsOn 'clean', 'build', 'createReportDir'
-tasks.build.mustRunAfter 'clean'
-tasks.runWebTasks.finalizedBy('allureReport')
+
 
 
 

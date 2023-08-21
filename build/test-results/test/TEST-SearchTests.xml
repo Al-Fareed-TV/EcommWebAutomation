@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SearchTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-08-18T09:51:51" hostname="Al-Fareeds-MacBook-Pro.local" time="5.415">
+<testsuite name="SearchTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-08-18T10:13:16" hostname="Al-Fareeds-MacBook-Pro.local" time="6.623">
   <properties/>
-  <testcase name="verifyIfSearchTermShowsRelevantResults" classname="SearchTests" time="5.415">
+  <testcase name="verifyIfSearchTermShowsRelevantResults" classname="SearchTests" time="6.623">
     <failure message="org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 114&#10;Current browser version is 116.0.5845.96 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome &#10;Host info: host: 'Al-Fareeds-MacBook-Pro.local', ip: 'fe80:0:0:0:4f6:3bbd:3083:a073%en0'&#10;Build info: version: '4.10.0', revision: 'c14d967899'&#10;System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.5', java.version: '17.0.8'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}]}]" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 114
 Current browser version is 116.0.5845.96 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome 
 Host info: host: 'Al-Fareeds-MacBook-Pro.local', ip: 'fe80:0:0:0:4f6:3bbd:3083:a073%en0'
@@ -72,7 +72,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Aug 18, 2023 3:21:52 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+  <system-err><![CDATA[Aug 18, 2023 3:43:18 PM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
 INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
 ]]></system-err>
 </testsuite>
